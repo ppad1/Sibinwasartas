@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sibinwasartas</title>
+<style>
+  :root{
+    --ink:#122622;
+    --muted:#4d6e66;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#1f4b43 0%,#2f6f63 22%,#5c9a87 45%,#8fc0ac 65%,#c3e2d1 85%,#e3f2e8 100%);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+  }
+  .page{
+    width:100%;
+    max-width:480px;
+    padding:18px 18px 60px;
+  }
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:6px;
+  }
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,0.55);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink);
+  }
+  .avatar-wrap{ text-align:center; margin-top:6px; }
+  .avatar{
+    width:78px;height:78px;border-radius:50%;
+    margin:0 auto 14px;
+    background:radial-gradient(circle at 35% 30%, #fff 0%, #dff0e8 40%, #c79a4b 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+  }
+  .avatar svg{ width:40px;height:40px; }
+  h1{
+    font-size:19px;
+    font-weight:700;
+    text-align:center;
+    margin:0 0 4px;
+    color:var(--ink);
+  }
+  .subtitle{
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    margin:0 0 26px;
+  }
+  .section-title{
+    text-align:center;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:0.3px;
+    color:var(--ink);
+    margin:26px 0 12px;
+  }
+  .section-title:first-of-type{ margin-top:10px; }
+  .sub-title{
+    font-size:12px;
+    font-weight:600;
+    color:var(--ink);
+    margin:14px 2px 8px;
+    padding-left:4px;
+  }
+  .sub-sub-title{
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--muted);
+    margin:10px 2px 6px 16px;
+  }
+  a.pill{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    background:#fff;
+    border:1.5px solid #1c1c1c;
+    border-radius:999px;
+    padding:14px 40px 14px 18px;
+    margin:0 0 10px;
+    font-size:13.5px;
+    font-weight:500;
+    color:#1c1c1c;
+    text-decoration:none;
+    box-shadow:2.5px 3px 0 rgba(0,0,0,0.85);
+    text-align:center;
+  }
+  a.pill.indent{ margin-left:16px; }
+  a.pill span.dots{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#8a8a8a;
+    font-size:15px;
+    letter-spacing:1px;
+  }
+  a.pill:active{ transform:translateY(1px); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <div class="icon-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </div>
+    <div class="icon-btn">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 21h14"/></svg>
+    </div>
+  </div>
+
+  <div class="avatar-wrap">
+    <div class="avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1f4b43" stroke-width="1.6"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/><path d="M8 12h8M8 15.5h8M8 8.5h4"/></svg>
+    </div>
+    <h1>@sibinwasartas</h1>
+    <p class="subtitle">Arsip Tertata, UPI Terjaga</p>
+  </div>
+
+  <!-- ============ PEMBINAAN ============ -->
+  <p class="section-title">PEMBINAAN</p>
+
+  <p class="sub-title">1. Referensi Dasar Hukum Kearsipan</p>
+  <a class="pill indent" href="#">Undang-undang<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Peraturan/Keputusan Pemerintah<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Peraturan/Keputusan Presiden<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Peraturan/Keputusan Menteri<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Peraturan/Keputusan Rektor<span class="dots">⋮</span></a>
+
+  <p class="sub-title">2. Pedoman Kerja Unit Pengolah</p>
+  <p class="sub-sub-title">a. Penciptaan dan Pengendalian Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format Naskah Dinas<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format Siap Unduh<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">b. Penggunaan Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">c. Pemeliharaan Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">d. Penyusutan Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">e. Sumber Daya Kearsipan</p>
+  <a class="pill indent" href="#">Data Arsiparis dan Pranata Arsip<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Informasi Diklat<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Informasi Program Pembinaan<span class="dots">⋮</span></a>
+
+  <a class="pill" href="#">f. Prasarana dan Sarana<span class="dots">⋮</span></a>
+
+  <p class="sub-title">3. Pedoman Kerja di Unit Kearsipan II</p>
+  <p class="sub-sub-title">a. Pengendalian Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format Naskah Dinas<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format Siap Unduh<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">b. Penggunaan Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">c. Pemeliharaan Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">d. Penyusutan Arsip</p>
+  <a class="pill indent" href="#">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Video Tutorial<span class="dots">⋮</span></a>
+
+  <p class="sub-sub-title">e. Sumber Daya Kearsipan</p>
+  <a class="pill indent" href="#">Data Arsiparis dan Pranata Arsip<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Informasi Diklat<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Informasi Program Pembinaan<span class="dots">⋮</span></a>
+
+  <a class="pill" href="#">f. Prasarana dan Sarana<span class="dots">⋮</span></a>
+
+  <p class="sub-title">4. Chanal Konsultasi</p>
+  <a class="pill indent" href="#">Melalui WhatsApp<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Melalui Chatbot Otomatis 24 Jam (FAQ)<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#">Melalui Janji Temu (Ambil Antrean)<span class="dots">⋮</span></a>
+
+  <a class="pill" href="#">5. Tautan Zoom Permanen Ruang Konsultasi Berjadwal<span class="dots">⋮</span></a>
+  <a class="pill" href="#">6. Permohonan Layanan<span class="dots">⋮</span></a>
+  <a class="pill" href="#">7. Dokumentasi Kegiatan<span class="dots">⋮</span></a>
+  <a class="pill" href="#">8. Link Media Sosial<span class="dots">⋮</span></a>
+  <a class="pill" href="#">9. Link Website<span class="dots">⋮</span></a>
+
+  <!-- ============ PENGAWASAN ============ -->
+  <p class="section-title">PENGAWASAN</p>
+
+  <a class="pill" href="#">1. Daftar Aspek dan Bukti Dukung<span class="dots">⋮</span></a>
+  <a class="pill" href="#">2. Evaluasi Mandiri dan Unggah Bukti Dukung<span class="dots">⋮</span></a>
+  <a class="pill" href="#">3. Hasil Nilai Pengawasan Tahun Lalu<span class="dots">⋮</span></a>
+
+</div>
+</body>
+</html>
