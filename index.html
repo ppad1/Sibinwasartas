@@ -122,6 +122,44 @@
     letter-spacing:1px;
   }
   a.pill:active{ transform:translateY(1px); }
+
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15,20,26,0.55);
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:20px;
+  }
+  .modal-overlay.show{ display:flex; }
+  .modal-box{
+    background:#fff;
+    border-radius:18px;
+    max-width:320px;
+    width:100%;
+    padding:26px 22px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  }
+  .modal-box p{
+    font-size:14px;
+    color:var(--ink);
+    margin:0 0 20px;
+    line-height:1.5;
+  }
+  .modal-box button{
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:11px 28px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .modal-box button:active{ transform:translateY(1px); }
 </style>
 </head>
 <body>
@@ -152,97 +190,115 @@
 
 
   <p class="sub-title">1. Referensi Dasar Hukum Kearsipan</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Undang-undang<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Peraturan/Keputusan Pemerintah<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Peraturan/Keputusan Presiden<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Peraturan/Keputusan Menteri<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Peraturan/Keputusan Rektor<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Undang-undang<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Peraturan/Keputusan Pemerintah<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Peraturan/Keputusan Presiden<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Peraturan/Keputusan Menteri<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Peraturan/Keputusan Rektor<span class="dots">⋮</span></a>
 
   <p class="sub-title">2. Pedoman Kerja Unit Pengolah</p>
   <p class="sub-sub-title">a. Penciptaan dan Pengendalian Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format Naskah Dinas<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format Siap Unduh<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format Naskah Dinas<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format Siap Unduh<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">b. Penggunaan Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format yang Digunakan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">c. Pemeliharaan Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format yang Digunakan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">d. Penyusutan Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format yang Digunakan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">e. Sumber Daya Kearsipan</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Data Arsiparis dan Pranata Arsip<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Informasi Diklat<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Informasi Program Pembinaan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Data Arsiparis dan Pranata Arsip<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Informasi Diklat<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Informasi Program Pembinaan<span class="dots">⋮</span></a>
 
-  <a class="pill" href="https://example.com/ganti-link-ini">f. Prasarana dan Sarana<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">f. Prasarana dan Sarana<span class="dots">⋮</span></a>
 
   <p class="sub-title">3. Pedoman Kerja di Unit Kearsipan II</p>
   <p class="sub-sub-title">a. Pengendalian Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format Naskah Dinas<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format Siap Unduh<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format Naskah Dinas<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format Siap Unduh<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">b. Penggunaan Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format yang Digunakan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">c. Pemeliharaan Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format yang Digunakan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">d. Penyusutan Arsip</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">SOP yang Disahkan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Langkah Kerja<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Format yang Digunakan<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Video Tutorial<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">SOP yang Disahkan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Langkah Kerja<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Format yang Digunakan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Video Tutorial<span class="dots">⋮</span></a>
 
   <p class="sub-sub-title">e. Sumber Daya Kearsipan</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Data Arsiparis dan Pranata Arsip<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Informasi Diklat<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Informasi Program Pembinaan<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Data Arsiparis dan Pranata Arsip<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Informasi Diklat<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Informasi Program Pembinaan<span class="dots">⋮</span></a>
 
-  <a class="pill" href="https://example.com/ganti-link-ini">f. Prasarana dan Sarana<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">f. Prasarana dan Sarana<span class="dots">⋮</span></a>
 
   <p class="sub-title">4. Chanal Konsultasi</p>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Melalui WhatsApp<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Melalui Chatbot Otomatis 24 Jam (FAQ)<span class="dots">⋮</span></a>
-  <a class="pill indent" href="https://example.com/ganti-link-ini">Melalui Janji Temu (Ambil Antrean)<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Melalui WhatsApp<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Melalui Chatbot Otomatis 24 Jam (FAQ)<span class="dots">⋮</span></a>
+  <a class="pill indent" href="#" onclick="return showSample(event)">Melalui Janji Temu (Ambil Antrean)<span class="dots">⋮</span></a>
 
-  <a class="pill" href="https://example.com/ganti-link-ini">5. Tautan Zoom Permanen Ruang Konsultasi Berjadwal<span class="dots">⋮</span></a>
-  <a class="pill" href="https://example.com/ganti-link-ini">6. Permohonan Layanan<span class="dots">⋮</span></a>
-  <a class="pill" href="https://example.com/ganti-link-ini">7. Dokumentasi Kegiatan<span class="dots">⋮</span></a>
-  <a class="pill" href="https://example.com/ganti-link-ini">8. Link Media Sosial<span class="dots">⋮</span></a>
-  <a class="pill" href="https://example.com/ganti-link-ini">9. Link Website<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">5. Tautan Zoom Permanen Ruang Konsultasi Berjadwal<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">6. Permohonan Layanan<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">7. Dokumentasi Kegiatan<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">8. Link Media Sosial<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">9. Link Website<span class="dots">⋮</span></a>
 
   <!-- ============ PENGAWASAN ============ -->
   <p class="section-title">PENGAWASAN</p>
 
-  <a class="pill" href="https://example.com/ganti-link-ini">1. Daftar Aspek dan Bukti Dukung<span class="dots">⋮</span></a>
-  <a class="pill" href="https://example.com/ganti-link-ini">2. Evaluasi Mandiri dan Unggah Bukti Dukung<span class="dots">⋮</span></a>
-  <a class="pill" href="https://example.com/ganti-link-ini">3. Hasil Nilai Pengawasan Tahun Lalu<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">1. Daftar Aspek dan Bukti Dukung<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">2. Evaluasi Mandiri dan Unggah Bukti Dukung<span class="dots">⋮</span></a>
+  <a class="pill" href="#" onclick="return showSample(event)">3. Hasil Nilai Pengawasan Tahun Lalu<span class="dots">⋮</span></a>
   </div>
 
 </div>
+
+<div class="modal-overlay" id="sampleModal">
+  <div class="modal-box">
+    <p>Ini adalah sample link yang dituju.<br>Link asli akan dipasang di sini nanti.</p>
+    <button onclick="closeSample()">Kembali</button>
+  </div>
+</div>
+
+<script>
+  function showSample(e){
+    e.preventDefault();
+    document.getElementById('sampleModal').classList.add('show');
+    return false;
+  }
+  function closeSample(){
+    document.getElementById('sampleModal').classList.remove('show');
+  }
+</script>
 </body>
 </html>
