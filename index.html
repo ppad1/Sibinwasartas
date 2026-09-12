@@ -160,6 +160,45 @@
     cursor:pointer;
   }
   .modal-box button:active{ transform:translateY(1px); }
+
+  .toast{
+    position:fixed;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:#182430;
+    color:#fff;
+    padding:11px 22px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:500;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+    z-index:60;
+    white-space:nowrap;
+  }
+  .toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+  .search-bar{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .search-bar.show{ max-height:60px; margin-top:10px; }
+  .search-bar input{
+    width:100%;
+    border:none;
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:13px;
+    background:rgba(255,255,255,0.15);
+    color:#f3f6f8;
+    outline:none;
+  }
+  .search-bar input::placeholder{ color:#c3d0dc; }
 </style>
 </head>
 <body>
@@ -167,12 +206,16 @@
 
   <div class="header-band">
   <div class="topbar">
-    <div class="icon-btn">
+    <div class="icon-btn" onclick="toggleSearch()" style="cursor:pointer;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
     </div>
-    <div class="icon-btn">
+    <div class="icon-btn" onclick="shareLink()" style="cursor:pointer;">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 21h14"/></svg>
     </div>
+  </div>
+
+  <div class="search-bar" id="searchBar">
+    <input type="text" id="searchInput" placeholder="Cari menu atau dokumen..." oninput="filterPills()">
   </div>
 
   <div class="avatar-wrap">
@@ -290,7 +333,26 @@
   </div>
 </div>
 
+<div class="toast" id="toast">Link disalin!</div>
+
 <script>
+  function toggleSearch(){
+    const bar = document.getElementById('searchBar');
+    bar.classList.toggle('show');
+    if(bar.classList.contains('show')){
+      document.getElementById('searchInput').focus();
+    } else {
+      document.getElementById('searchInput').value = '';
+      filterPills();
+    }
+  }
+  function filterPills(){
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    document.querySelectorAll('a.pill').forEach(function(pill){
+      const text = pill.textContent.replace('⋮','').trim().toLowerCase();
+      pill.style.display = (q === '' || text.includes(q)) ? 'flex' : 'none';
+    });
+  }
   function showSample(e){
     e.preventDefault();
     document.getElementById('sampleModal').classList.add('show');
@@ -298,6 +360,25 @@
   }
   function closeSample(){
     document.getElementById('sampleModal').classList.remove('show');
+  }
+  function shareLink(){
+    const url = window.location.href;
+    function fallbackCopy(){
+      const temp = document.createElement('textarea');
+      temp.value = url;
+      document.body.appendChild(temp);
+      temp.select();
+      try{ document.execCommand('copy'); }catch(err){}
+      document.body.removeChild(temp);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2000);
   }
 </script>
 </body>
