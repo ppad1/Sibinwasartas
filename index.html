@@ -83,7 +83,7 @@
     text-align:center;
     margin:2px 0 4px;
     position:relative;
-    top:-28px;
+    top:2px;
     z-index:2;
   }
   .hero-line{
@@ -181,6 +181,28 @@
     align-items:center;
     gap:10px;
     margin-bottom:10px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .group-toggle{
+    margin-left:auto;
+    color:var(--blue-mid);
+    flex:0 0 auto;
+    transition:transform .25s ease;
+  }
+  .group-toggle.collapsed{
+    transform:rotate(-90deg);
+  }
+  .group-content{
+    max-height:2000px;
+    overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .group-content.collapsed{
+    max-height:0;
+  }
+  .group-card.collapsed{
+    padding-bottom:14px;
   }
   .badge-num{
     width:26px;height:26px;border-radius:50%;
@@ -481,7 +503,7 @@ function renderLv2(items, color){
       html += `<p class="sub-header">${String.fromCharCode(97+i)}. ${sub.label}</p>`;
       sub.children.forEach((leaf)=>{ html += itemPill(leaf, color); });
     } else {
-      html += itemPill({...sub, label: String.fromCharCode(97+i)+'. '+sub.label}, color);
+      html += itemPill(Object.assign({}, sub, {label: String.fromCharCode(97+i)+'. '+sub.label}), color);
     }
   });
   return html;
@@ -494,11 +516,14 @@ function renderSection(items, numOffset){
     const color = colorForGroup(num);
     if(item.children && item.children.length){
       html += `<div class="group-card">
-        <div class="group-header">
+        <div class="group-header" onclick="toggleGroup(this)">
           <div class="badge-num" style="background:${color}">${num}</div>
           <div class="group-title">${item.label}</div>
+          <svg class="group-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
-        ${renderLv2(item.children, color)}
+        <div class="group-content">
+          ${renderLv2(item.children, color)}
+        </div>
       </div>`;
     } else {
       html += itemPill(item, color, true, num);
@@ -517,6 +542,12 @@ document.getElementById('contentArea').innerHTML = `
 `;
 
 /* ---------------- INTERACTIONS ---------------- */
+function toggleGroup(headerEl){
+  const content = headerEl.nextElementSibling;
+  const toggle = headerEl.querySelector('.group-toggle');
+  content.classList.toggle('collapsed');
+  toggle.classList.toggle('collapsed');
+}
 function toggleSearch(){
   const bar = document.getElementById('searchBar');
   bar.classList.toggle('show');
